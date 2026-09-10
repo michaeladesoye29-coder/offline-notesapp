@@ -1,0 +1,242 @@
+* { box-sizing: border-box; }
+
+:root {
+  font-family: Arial, sans-serif;
+  color: #1d1d1b;
+  background: #fbfaf7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #fbfaf7;
+}
+
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+
+.shell { min-height: 100vh; }
+
+header {
+  height: 64px;
+  border-bottom: 1px solid #1d1d1b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5vw;
+  background: #fbfaf7;
+}
+
+header strong { letter-spacing: -.02em; }
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.status i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.online { color: #456b48; }
+.offline { color: #8a5a3c; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}
+
+aside {
+  min-height: calc(100vh - 64px);
+  border-right: 1px solid #d8d2c8;
+  padding: 32px 24px;
+}
+
+.map-title, .eyebrow, small {
+  color: #6f6a60;
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+
+.map-title { margin: 0 0 18px; }
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 10px 0;
+  color: #1d1d1b;
+}
+
+.step span {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #c8c0b5;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.step.done { color: #456b48; }
+.step.done span { border-color: #456b48; }
+
+.progress {
+  border-top: 1px solid #d8d2c8;
+  margin-top: 24px;
+  padding-top: 16px;
+}
+
+.progress-track {
+  height: 5px;
+  background: #e5e0d8;
+  margin-top: 9px;
+  overflow: hidden;
+}
+
+.progress-track div {
+  height: 100%;
+  background: #1d1d1b;
+  transition: width .2s ease;
+}
+
+main {
+  padding: 64px clamp(24px, 7vw, 100px);
+  max-width: 1100px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 700px;
+  font-family: Georgia, serif;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: .95;
+  letter-spacing: -.045em;
+  margin: 0;
+}
+
+.student-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 18px;
+  color: #1d1d1b;
+}
+
+.student-info strong {
+  font-size: 18px;
+}
+
+.student-info span {
+  color: #6f6a60;
+  font-size: 13px;
+  letter-spacing: .03em;
+}
+
+.lede {
+  color: #6f6a60;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 24px 0 45px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1.3fr .8fr;
+  gap: 45px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+}
+
+h2 { margin: 0 0 14px; font-size: 20px; }
+.section-heading span { color: #6f6a60; font-size: 12px; }
+
+.notes article {
+  border-top: 1px solid #d8d2c8;
+  padding: 18px 0;
+}
+
+article h3 { margin: 0 0 7px; font-size: 18px; }
+article p { color: #6f6a60; line-height: 1.5; margin: 0 0 12px; }
+
+form {
+  border: 1px solid #1d1d1b;
+  padding: 22px;
+  background: rgba(255,255,255,.35);
+}
+
+.form-help {
+  color: #6f6a60;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: -5px 0 16px;
+}
+
+label {
+  display: block;
+  color: #6f6a60;
+  font-size: 13px;
+  margin: 14px 0;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #d8d2c8;
+  padding: 11px;
+  margin-top: 6px;
+  background: white;
+  color: #1d1d1b;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: #1d1d1b;
+  box-shadow: 0 0 0 2px rgba(29,29,27,.08);
+}
+
+textarea { resize: vertical; }
+
+.save {
+  width: 100%;
+  color: white;
+  background: #1d1d1b;
+  border: 0;
+  padding: 12px;
+  margin-top: 4px;
+}
+
+.save:hover { background: #343432; }
+
+@media (max-width: 760px) {
+  .layout { display: block; }
+  aside {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #d8d2c8;
+  }
+  .columns { grid-template-columns: 1fr; }
+  main { padding: 40px 6vw; }
+}
